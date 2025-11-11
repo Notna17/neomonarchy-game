@@ -1,0 +1,292 @@
+/* Базові стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e;
+    color: #e6e6e6;
+    min-height: 100vh;
+    overflow-y: auto; /* Дозволяємо скрол всьому тілу */
+}
+
+/* Основний контейнер */
+.game-container {
+    display: flex;
+    min-height: 100vh;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Графічна частина */
+.game-graphics {
+    flex: 1;
+    background: linear-gradient(135deg, #2d1b69 0%, #4a2c92 100%); /* Фіолетовий градієнт */
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Дозволяємо скрол графічній частині */
+}
+
+.game-header h1 {
+    color: #b967ff; /* Фіолетовий */
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Сітка будівель */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    flex: 1;
+}
+
+.menu-item {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #b967ff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(185, 103, 255, 0.4);
+    background: rgba(185, 103, 255, 0.15);
+}
+
+.menu-icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.menu-name {
+    font-weight: bold;
+    color: #b967ff; /* Фіолетовий */
+    margin-bottom: 5px;
+}
+
+.menu-desc {
+    font-size: 0.9em;
+    color: #d4b5ff;
+}
+
+/* Кнопки дій */
+.menu-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    background: linear-gradient(45deg, #b967ff, #9d4edd); /* Фіолетовий градієнт */
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(185, 103, 255, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(185, 103, 255, 0.5);
+    background: linear-gradient(45deg, #c87dff, #a85ee3);
+}
+
+/* Консоль */
+.game-console {
+    width: 400px;
+    background: #0d1117;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.console-header {
+    background: #161b22;
+    padding: 15px 20px;
+    border-radius: 15px 15px 0 0;
+    border-bottom: 2px solid #b967ff; /* Фіолетовий */
+}
+
+.console-header h2 {
+    color: #b967ff; /* Фіолетовий */
+    font-size: 1.3em;
+}
+
+.console-output {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.4;
+    max-height: 80vh;
+}
+
+.console-input {
+    display: flex;
+    padding: 15px;
+    background: #161b22;
+    border-radius: 0 0 15px 15px;
+    border-top: 2px solid #b967ff; /* Фіолетовий */
+}
+
+.console-input input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #b967ff; /* Фіолетовий */
+    border-radius: 8px;
+    background: #0d1117;
+    color: #e6e6e6;
+    font-family: 'Courier New', monospace;
+    transition: all 0.3s ease;
+}
+
+.console-input input:focus {
+    outline: none;
+    border-color: #d4b5ff;
+    box-shadow: 0 0 10px rgba(185, 103, 255, 0.4);
+}
+
+.console-input button {
+    background: #b967ff; /* Фіолетовий */
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-left: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.console-input button:hover {
+    background: #c87dff;
+    transform: scale(1.05);
+}
+
+/* Стилі для виводу в консолі */
+.command {
+    color: #b967ff; /* Фіолетовий */
+    font-weight: bold;
+}
+
+.item {
+    color: #e6e6e6;
+    margin: 5px 0;
+}
+
+/* Стилі для помилок - червоніють при неправильній команді */
+.error-message {
+    color: #ff2d42 !important;
+    background: rgba(61, 0, 31, 0.1) !important;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 3px solid #ff2d42;
+    animation: errorPulse 0.6s ease-in-out;
+}
+
+.nmy-message {
+    color: #93006c !important;
+    background: #8d99ae1d !important;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 3px solid #93006c;
+}
+
+.success-message {
+    color: #00caac !important;
+    background: rgba(0, 255, 238, 0.1) !important;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 3px solid #00caac;
+}
+
+/* Анімація для помилок */
+@keyframes errorPulse {
+    0% {
+        background: rgba(255, 107, 107, 0.1);
+        transform: translateX(0);
+    }
+    25% {
+        background: rgba(255, 107, 107, 0.2);
+        transform: translateX(-5px);
+    }
+    50% {
+        background: rgba(255, 107, 107, 0.3);
+        transform: translateX(5px);
+    }
+    100% {
+        background: rgba(255, 107, 107, 0.1);
+        transform: translateX(0);
+    }
+}
+
+/* Стилі для успішних дій */
+.success-highlight {
+    color: #4ecdc4 !important;
+    font-weight: bold;
+}
+
+.info-highlight {
+    color: #45b7d1 !important;
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 768px) {
+    .game-container {
+        flex-direction: column-reverse;
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .game-graphics {
+        order: 2;
+        min-height: 50vh;
+        overflow-y: visible;
+    }
+
+    .game-console {
+        order: 1;
+        width: 100%;
+        height: 50vh;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .menu-actions {
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        flex: 1;
+        min-width: 120px;
+        max-width: 350px;
+    }
+}
+
+/* Спеціальні класи для виводу */
+.console-output p {
+    margin-bottom: 8px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
