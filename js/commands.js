@@ -19,7 +19,7 @@ window.commandObjects = commandObjects;
 window.activeCO = activeCO;
 
 function createCO(name, title, commands) {
-    // commands: array of {name, aliases:[], fn, desc}
+    // commands: array of {name, aliases:[], fn}
     commandObjects[name] = { name, title, commands: commands || [] };
     return commandObjects[name]}
 
@@ -61,8 +61,7 @@ function processCommand(cmd) {
         }
         return;
     }
-    // not found in active context
-    logger('Команда не доступна в поточному контексті або не розпізнана: ' + cmd + '. Спробуйте help', 'error-message');}
+    logger('Команда ' + cmd + ' не доступна в поточному контексті або не розпізнана. Спробуйте help', 'error-message');}
     
 
 function enterCommand() {

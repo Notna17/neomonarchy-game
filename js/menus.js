@@ -20,10 +20,10 @@ function displayMenu(menuItems = [], actions = []) {
         if (item.color !== 'default') {it.style.backgroundColor = item.color};
         const icon = document.createElement('div');
         icon.className = 'menu-icon';
-        icon.textContent = item.icon;
+        icon.innerHTML = item.icon;
         const name = document.createElement('div');
         name.className = 'menu-name';
-        name.textContent = item.name;
+        name.innerHTML = item.name;
         const desc = document.createElement('div');
         desc.className = 'menu-desc';
         desc.innerHTML = item.desc;
@@ -56,6 +56,9 @@ function displayMenu(menuItems = [], actions = []) {
 
 function displayPNM() {
     const PNMactions = [
+    {label: 'Менталітет', command: 'mental'},
+    {label: 'Загальна статистика', command: 'planet'},
+    {label: 'Ринки >', command: 'economy'},
     {label: 'Допомога', command: 'help'},
     ];
     const PNMitems = [];
@@ -63,11 +66,11 @@ function displayPNM() {
             icon: n.icon,
             color: n.color,
             name: n.name,
-            desc: n.desc + `. <br>Проживає ${n.pop} одиниць населення. <br>Володіють землею у розмірі ${n.land} одиниць.`,
-            onClick: () => {},
+            desc: n.desc + `. <br>Чисельність у ${n.pop} одиниць населення. <br>Володіють землею у розмірі ${n.land} одиниць.`,
+            onClick: () => {activeNO = n; logger(`Статистика тепер буде про націю <span style="color:${n.color};">"${n.name}"</span>`, 'success-message')},
         })};
     displayMenu(PNMitems, PNMactions);
-    activateCO('planet-nation');
+    activateCO('nation');
 }
 
 window.displayPNM = displayPNM;

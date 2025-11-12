@@ -1,4 +1,3 @@
-/* Базові стилі */
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +5,16 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1a1a2e;
-    color: #e6e6e6;
+    font-family: "Tektur", sans-serif;
+    background-color: #0a0606;
     min-height: 100vh;
-    overflow-y: auto; /* Дозволяємо скрол всьому тілу */
+    overflow-y: auto;
 }
 
-/* Основний контейнер */
+span {
+    font-weight: bold;
+}
+
 .game-container {
     display: flex;
     min-height: 100vh;
@@ -21,28 +22,23 @@ body {
     padding: 10px;
 }
 
-/* Графічна частина */
 .game-graphics {
     flex: 1;
-    background: linear-gradient(135deg, #2d1b69 0%, #4a2c92 100%); /* Фіолетовий градієнт */
     border-radius: 15px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    overflow-y: auto; /* Дозволяємо скрол графічній частині */
+    overflow-y: auto;
 }
 
 .game-header h1 {
-    color: #b967ff; /* Фіолетовий */
+    color: #f0f0f0;
     text-align: center;
     margin-bottom: 10px;
     font-size: 2.5em;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Сітка будівель */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -51,20 +47,18 @@ body {
 }
 
 .menu-item {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid #b967ff;
+    background: rgb(80, 80, 80);
+    border: 2px solid #ffffff;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
 }
 
 .menu-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(185, 103, 255, 0.4);
-    background: rgba(185, 103, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
 }
 
 .menu-icon {
@@ -74,16 +68,16 @@ body {
 
 .menu-name {
     font-weight: bold;
-    color: #b967ff; /* Фіолетовий */
-    margin-bottom: 5px;
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 .menu-desc {
-    font-size: 0.9em;
-    color: #d4b5ff;
+    font-size: 0.8em;
+    color: #ffffffdd;
 }
 
-/* Кнопки дій */
 .menu-actions {
     display: flex;
     gap: 10px;
@@ -91,42 +85,39 @@ body {
 }
 
 .btn {
-    background: linear-gradient(45deg, #b967ff, #9d4edd); /* Фіолетовий градієнт */
+    background: #777777;
     border: none;
     border-radius: 25px;
     padding: 12px 24px;
-    color: white;
+    color: #ffffff;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(185, 103, 255, 0.3);
 }
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(185, 103, 255, 0.5);
-    background: linear-gradient(45deg, #c87dff, #a85ee3);
+    background: #9a9a9a;
 }
 
-/* Консоль */
+
 .game-console {
     width: 400px;
-    background: #0d1117;
     border-radius: 15px;
     display: flex;
+    border: 2px solid #777777;
+    background-color: #10100b;
     flex-direction: column;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .console-header {
-    background: #161b22;
     padding: 15px 20px;
     border-radius: 15px 15px 0 0;
-    border-bottom: 2px solid #b967ff; /* Фіолетовий */
+    border-bottom: 2px solid #777777;
 }
 
 .console-header h2 {
-    color: #b967ff; /* Фіолетовий */
+    color: #ffffff;
     font-size: 1.3em;
 }
 
@@ -134,69 +125,66 @@ body {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9em;
-    line-height: 1.4;
+    line-height: 1.25;
     max-height: 80vh;
+    font-family: "Ubuntu Mono", monospace;
 }
 
 .console-input {
     display: flex;
     padding: 15px;
-    background: #161b22;
     border-radius: 0 0 15px 15px;
-    border-top: 2px solid #b967ff; /* Фіолетовий */
+    border-top: 2px solid #777777;
 }
 
 .console-input input {
+    font-family: "Ubuntu Mono", monospace;
     flex: 1;
     padding: 12px;
-    border: 1px solid #b967ff; /* Фіолетовий */
+    border: 1px solid #777777;
     border-radius: 8px;
-    background: #0d1117;
-    color: #e6e6e6;
-    font-family: 'Courier New', monospace;
+    background-color: #101000;
+    color: #ffffff;
     transition: all 0.3s ease;
 }
 
 .console-input input:focus {
     outline: none;
-    border-color: #d4b5ff;
-    box-shadow: 0 0 10px rgba(185, 103, 255, 0.4);
+    border-color: #9a9a9a;
+    box-shadow: 0 0 10px rgb(255, 255, 255, 0.7);
 }
 
 .console-input button {
-    background: #b967ff; /* Фіолетовий */
-    border: none;
+    background: #777777;
     border-radius: 8px;
-    padding: 12px 20px;
+    padding: 12px;
     margin-left: 10px;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
     font-weight: bold;
+    font-size: 0.9em;
     transition: all 0.3s ease;
 }
 
 .console-input button:hover {
-    background: #c87dff;
-    transform: scale(1.05);
+    background: #9a9a9a;
 }
 
-/* Стилі для виводу в консолі */
+
 .command {
-    color: #b967ff; /* Фіолетовий */
+    color: #ffffff;
+    font-size: 1.1em;
     font-weight: bold;
 }
 
 .item {
-    color: #e6e6e6;
+    color: #ffffff;
     margin: 5px 0;
 }
 
-/* Стилі для помилок - червоніють при неправильній команді */
 .error-message {
     color: #ff2d42 !important;
-    background: rgba(61, 0, 31, 0.1) !important;
+    background: #ff2d4230 !important;
     padding: 8px 12px;
     border-radius: 8px;
     border-left: 3px solid #ff2d42;
@@ -205,21 +193,20 @@ body {
 
 .nmy-message {
     color: #93006c !important;
-    background: #8d99ae1d !important;
+    background: #93006c30 !important;
     padding: 8px 12px;
     border-radius: 8px;
     border-left: 3px solid #93006c;
 }
 
 .success-message {
-    color: #00caac !important;
-    background: rgba(0, 255, 238, 0.1) !important;
+    color: #ffffff !important;
+    background: #ffffff30 !important;
     padding: 8px 12px;
     border-radius: 8px;
-    border-left: 3px solid #00caac;
+    border-left: 3px solid #ffffff;
 }
 
-/* Анімація для помилок */
 @keyframes errorPulse {
     0% {
         background: rgba(255, 107, 107, 0.1);
@@ -239,17 +226,7 @@ body {
     }
 }
 
-/* Стилі для успішних дій */
-.success-highlight {
-    color: #4ecdc4 !important;
-    font-weight: bold;
-}
 
-.info-highlight {
-    color: #45b7d1 !important;
-}
-
-/* Адаптивність для мобільних пристроїв */
 @media (max-width: 768px) {
     .game-container {
         flex-direction: column-reverse;
@@ -278,15 +255,12 @@ body {
 
     .btn {
         flex: 1;
-        min-width: 120px;
-        max-width: 350px;
+        max-width: 160px;
     }
 }
 
-/* Спеціальні класи для виводу */
 .console-output p {
     margin-bottom: 8px;
     padding: 5px;
-    border-radius: 5px;
     transition: all 0.3s ease;
 }
