@@ -45,8 +45,8 @@ function helpActive() {
     if (!activeCO) return [];
     const CO = commandObjects[activeCO];
     if (!CO) return [];
-    const helpinfo = CO.commands.map(c => c.name + ' (' + (c.aliases || []).join(', ') + ')');
-    if (helpinfo.length) {logger('Доступні команди:<br> ' + helpinfo.join('<br>'), 'item')};
+    const helpinfo = CO.commands.map(c => c.name + ' [' + (c.aliases || []).join(', ') + ']');
+    if (helpinfo.length) {logger('Доступні команди:<br> ' + helpinfo.join('<br>') + `<br>Для активації команди введи один з її перелічених псевдонімів`, 'item')};
     }
     
 function processCommand(cmd) {
