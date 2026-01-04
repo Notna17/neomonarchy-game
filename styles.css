@@ -192,11 +192,11 @@ span {
 }
 
 .nmy-message {
-    color: #93006c !important;
-    background: #93006c30 !important;
+    color: #b234b2 !important;
+    background: #b234b230 !important;
     padding: 8px 12px;
     border-radius: 8px;
-    border-left: 3px solid #93006c;
+    border-left: 3px solid #b234b2;
 }
 
 .success-message {

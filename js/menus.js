@@ -58,7 +58,7 @@ function displayPNM() {
     const PNMactions = [
     {label: 'Менталітет', command: 'mental'},
     {label: 'Загальна статистика', command: 'planet'},
-    {label: 'Ринки >', command: 'economy'},
+    {label: 'Торгівля >', command: 'menu trade'},
     {label: 'Допомога', command: 'help'},
     ];
     const PNMitems = [];
@@ -71,6 +71,26 @@ function displayPNM() {
         })};
     displayMenu(PNMitems, PNMactions);
     activateCO('nation');
+    activeNO = null;
+}
+
+function displayTM() {
+    const TMactions = [
+        {label: '< Нації', command: 'menu nations'},
+        {label: 'Допомога', command: 'help'},
+    ]
+    const TMitems = [];
+    for (const ma of Object.values(marketObjects)) {TMitems.push({
+            icon: ma.icon,
+            color: ma.color,
+            name: ma.name,
+            desc: `Маркет під володінням кахи, учасники кахи, найбільші дефіцити кахи, найбільші профіцити кахи`,
+            onClick: () => {activeNO = ma; logger(`Статистика тепер буде про ринок <span style="color:${ma.color};">"${ma.name}"</span>`, 'success-message')},
+        })};
+    displayMenu(TMitems, TMactions);
+    activateCO('trade');
+    activeMO = null;
 }
 
 window.displayPNM = displayPNM;
+window.displayTM = displayTM;

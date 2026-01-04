@@ -28,6 +28,7 @@ function activateCO(name) {
     activeCO = name;
     const CO = commandObjects[name];
     consolename.textContent = CO.title;
+    logger(`Ввімкнено ` + CO.title, 'success-message')
     return true}
 
 function findCommand(input) {
